@@ -1,0 +1,118 @@
+:host {
+  display: block;
+}
+
+.kefu {
+}
+
+.kefu__iframe {
+  border: 0;
+  display: none;
+}
+.kefu__modal,
+.kefu__floating-button {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.kefu__modal {
+  z-index: 999;
+}
+
+.kefu__floating-button {
+  z-index: 998;
+  cursor: pointer;
+  padding: 5px;
+  background: #ffffff;
+  color: #666;
+  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  justify-content: center;
+}
+
+.modal__action {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 10px 18px;
+}
+
+.fold-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: 1px solid #fff;
+  opacity: 0.7;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.fold-icon:hover {
+  opacity: 1;
+}
+
+.fold-icon::after {
+  content: ' ';
+  height: 1px;
+  width: 9px;
+  background: #fff;
+}
+
+/* mobile */
+@media screen and (max-width: 767px) {
+  .fold-icon {
+    padding: 10px 6px;
+    opacity: 1;
+  }
+
+  .kefu.is-open .kefu__iframe.is-mobile {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+  }
+
+  .kefu__floating-button {
+    display: none;
+  }
+}
+
+/* default */
+@media screen and (min-width: 768px) {
+  .fold-icon {
+    padding: 7px 3px;
+  }
+  .kefu__iframe {
+    height: 550px;
+    display: block;
+  }
+  .kefu__modal {
+    bottom: -600px;
+  }
+  .kefu.is-open .kefu__modal {
+    bottom: 0;
+    margin: 10px;
+    box-shadow: 0 10px 25px 0px rgba(0, 0, 0, 0.1);
+  }
+  .kefu__iframe.is-mobile {
+    display: none;
+  }
+  .kefu__floating-button {
+    width: 60px;
+    margin: 10px;
+    box-shadow: 0 10px 25px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .kefu__floating-button img {
+    width: 48px;
+    height: 36px;
+    margin-bottom: 8px;
+  }
+}

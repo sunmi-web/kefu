@@ -1,0 +1,35 @@
+{
+  "name": "sunmi-kefu",
+  "version": "0.0.1",
+  "repository": "git@codeup.teambition.com:sunmi/FE/mall/kefu.git",
+  "author": "guoyongjie <guoyongjie@sunmi.com>",
+  "private": true,
+  "description": "Stencil Component Starter",
+  "main": "dist/index.cjs.js",
+  "module": "dist/custom-elements/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/custom-elements/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/sunmi-kefu/sunmi-kefu.esm.js",
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate"
+  },
+  "dependencies": {
+    "@stencil/core": "^2.4.0",
+    "classnames": "^2.2.6"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/classnames": "^2.2.11"
+  }
+}
