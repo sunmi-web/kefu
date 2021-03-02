@@ -1,9 +1,8 @@
 {
-  "name": "sunmi-kefu",
+  "name": "@sunmi/kefu",
   "version": "0.0.1",
   "repository": "git@codeup.teambition.com:sunmi/FE/mall/kefu.git",
   "author": "guoyongjie <guoyongjie@sunmi.com>",
-  "private": true,
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
