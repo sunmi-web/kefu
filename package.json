@@ -1,6 +1,6 @@
 {
   "name": "@sunmi/kefu",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": "git@codeup.teambition.com:sunmi/FE/mall/kefu.git",
   "author": "guoyongjie <guoyongjie@sunmi.com>",
   "description": "Stencil Component Starter",
@@ -29,6 +29,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/classnames": "^2.2.11"
+    "@types/classnames": "^2.2.11",
+    "@types/react": "^17.0.2"
   }
 }

@@ -3,6 +3,10 @@ import cx from 'classnames';
 import { floatingButtonIcon } from './assets.json';
 import { isMiniprogram } from '../../utils/utils';
 
+// 'zh-CN': '免费咨询',
+//     'zh-TW': '免費諮詢',
+//     'en-US': 'Contact',
+
 @Component({
   tag: 'sunmi-kefu',
   styleUrl: 'sunmi-kefu.css',
