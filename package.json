@@ -1,17 +1,13 @@
 {
   "name": "@sunmi/kefu",
-  "version": "0.0.3",
+  "version": "0.0.8",
   "repository": "git@codeup.teambition.com:sunmi/FE/mall/kefu.git",
   "author": "guoyongjie <guoyongjie@sunmi.com>",
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
-  "module": "dist/custom-elements/index.js",
-  "es2015": "dist/esm/index.mjs",
-  "es2017": "dist/esm/index.mjs",
-  "types": "dist/custom-elements/index.d.ts",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
-  "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/sunmi-kefu/sunmi-kefu.esm.js",
   "files": [
     "dist/",
     "loader/"
@@ -29,7 +25,9 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@stencil/react-output-target": "^0.0.9",
     "@types/classnames": "^2.2.11",
-    "@types/react": "^17.0.2"
+    "@types/react": "^17.0.2",
+    "workbox-build": "^6.1.1"
   }
 }

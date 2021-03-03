@@ -14,5 +14,13 @@
   </head>
   <body>
     <sunmi-kefu></sunmi-kefu>
+    <div id="kefu__controller">控制器</div>
+    <script type="module">
+      import { Kefu } from 'https://cdn.jsdelivr.net/npm/@sunmi/kefu@0.0.6/dist/index.js';
+      console.log(Kefu);
+      document.getElementById('kefu__controller').onclick = () => {
+        Kefu.toggleVisible();
+      };
+    </script>
   </body>
 </html>

@@ -16,9 +16,20 @@ export class SunmiKefu {
   @Prop() customed: boolean;
 
   @State() open: boolean;
+
+  private toggleVisible() {
+    this.open = !this.open;
+  }
+
   @Listen('click', { capture: true })
   handleClick() {
-    this.open = !this.open;
+    this.toggleVisible();
+  }
+
+  // 暴露在外的方法
+  @Listen('toggleVisible', { target: 'window' })
+  toggleVisibleHandler() {
+    this.toggleVisible();
   }
 
   renderChild() {
