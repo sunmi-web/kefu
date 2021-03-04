@@ -73,6 +73,11 @@
     opacity: 1;
   }
 
+  /* mall-h5 */
+  .kefu__modal {
+    z-index: 10000;
+  }
+
   .kefu.is-open .kefu__iframe.is-mobile {
     width: 100vw;
     height: 100vh;
