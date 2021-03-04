@@ -1,11 +1,7 @@
 import { Component, h, Listen, Prop, State } from '@stencil/core';
 import cx from 'classnames';
 import { floatingButtonIcon } from './assets.json';
-import { isMiniprogram } from '../../utils/utils';
-
-// 'zh-CN': '免费咨询',
-//     'zh-TW': '免費諮詢',
-//     'en-US': 'Contact',
+import { SunmiComAdaptor, MallSunmiComAdaptor, PartnerSunmiComAdaptor, LocalhostAdaptor, H5MallSunmiComAdaptor } from '../../adaptors';
 
 @Component({
   tag: 'sunmi-kefu',
@@ -32,14 +28,45 @@ export class SunmiKefu {
     this.toggleVisible();
   }
 
+  getAdaptor() {
+    switch (window.location.hostname) {
+      case 'sunmi.com':
+      case 'www.sunmi.com':
+      case 'official-website.sunmi.com':
+      case 'official-website.dev.sunmi.com':
+      case 'official-website.test.sunmi.com':
+      case 'official-website.uat.sunmi.com':
+        return new SunmiComAdaptor();
+      case 'mall.sunmi.com':
+      case 'mall.dev.sunmi.com':
+      case 'mall.test.sunmi.com':
+      case 'mall.uat.sunmi.com':
+        return new MallSunmiComAdaptor();
+      case 'h5.mall.sunmi.com':
+      case 'h5.mall.dev.sunmi.com':
+      case 'h5.mall.test.sunmi.com':
+      case 'h5.mall.uat.sunmi.com':
+        return new H5MallSunmiComAdaptor();
+      case 'partner.sunmi.com':
+      case 'partner.dev.sunmi.com':
+      case 'partner.test.sunmi.com':
+      case 'partner.uat.sunmi.com':
+        return new PartnerSunmiComAdaptor();
+      case 'localhost':
+      default:
+        return new LocalhostAdaptor();
+    }
+  }
+
   renderChild() {
+    const adaptor = this.getAdaptor();
     if (this.customed) {
       return <slot></slot>;
     } else {
       return (
         <div class="kefu__floating-button">
           <img src={floatingButtonIcon} alt="" />
-          <span class="alibaba-puhuiti-medium">text</span>
+          <span class="alibaba-puhuiti-medium">{adaptor.buttonText}</span>
         </div>
       );
     }
@@ -47,18 +74,18 @@ export class SunmiKefu {
 
   render() {
     // 微信小程序内不显示
-    if (isMiniprogram()) {
+    if (SunmiComAdaptor.isMiniprogram()) {
       return null;
     }
-
+    const adaptor = this.getAdaptor();
     return (
       <div class={cx('kefu', { 'is-open': this.open })}>
         <div class="kefu__modal">
           <div class="modal__action">
             <div class="fold-icon"></div>
           </div>
-          <iframe class="kefu__iframe is-mobile" src="//im.7x24cc.com/phone_webChat.html?accountId=N000000027155&chatId=dc641cbc-10cb-438a-9875-56f8bf4694e8" />
-          <iframe class="kefu__iframe is-pc" src="//im.7x24cc.com/phone_webChat.html?accountId=N000000027155&chatId=32c22cc0-309c-416f-a7e5-f6793a30df87" />
+          {adaptor.scripts.mobile && <iframe class="kefu__iframe is-mobile" src={adaptor.scripts.mobile} />}
+          {adaptor.scripts.pc && <iframe class="kefu__iframe is-pc" src={adaptor.scripts.pc} />}
         </div>
         {this.renderChild()}
       </div>
