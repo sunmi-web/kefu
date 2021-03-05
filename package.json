@@ -1,6 +1,6 @@
 {
   "name": "@sunmi/kefu",
-  "version": "0.1.8",
+  "version": "0.1.15",
   "repository": "git@codeup.teambition.com:sunmi/FE/mall/kefu.git",
   "author": "guoyongjie <guoyongjie@sunmi.com>",
   "description": "Stencil Component Starter",
@@ -13,8 +13,11 @@
     "loader/"
   ],
   "scripts": {
+    "prebuild": "rm -rf dist loader",
     "build": "stencil build --docs",
+    "purge": "curl https://purge.jsdelivr.net/npm/@sunmi/kefu/dist/",
     "start": "stencil build --dev --watch --serve",
+    "postpublish": "npm run purge",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate"

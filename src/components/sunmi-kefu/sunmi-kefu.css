@@ -51,11 +51,15 @@
     top: 0;
     left: 0;
   }
-  .kefu,
+
   .kefu__iframe {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+  }
+
+  .kefu.is-open .modal__action {
+    display: block;
   }
 
   .kefu__iframe.is-pc {
@@ -83,6 +87,9 @@
   }
 
   .kefu {
+    /* mall-h5 */
+    z-index: 10000;
+
     position: fixed;
     right: 0;
     bottom: 0;

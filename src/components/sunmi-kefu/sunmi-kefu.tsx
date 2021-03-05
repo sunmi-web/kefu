@@ -81,13 +81,15 @@ export class SunmiKefu {
     }
     return (
       <div class={cx('kefu', { 'is-open': this.open })}>
-        <div class="kefu__modal">
-          <div class="modal__action">
-            <div class="fold-icon"></div>
+        {this.open && (
+          <div class="kefu__modal">
+            <div class="modal__action">
+              <div class="fold-icon"></div>
+            </div>
+            {this.adaptor?.scripts.pc && <iframe class="kefu__iframe is-pc" src={this.adaptor.scripts.pc} />}
+            {this.adaptor?.scripts.mobile && <iframe class="kefu__iframe is-mobile" src={this.adaptor.scripts.mobile} />}
           </div>
-          {this.adaptor?.scripts.pc && <iframe class="kefu__iframe is-pc" src={this.adaptor.scripts.pc} />}
-          {this.adaptor?.scripts.mobile && <iframe class="kefu__iframe is-mobile" src={this.adaptor.scripts.mobile} />}
-        </div>
+        )}
         {this.renderChild()}
       </div>
     );
