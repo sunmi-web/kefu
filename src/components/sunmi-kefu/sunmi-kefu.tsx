@@ -12,9 +12,11 @@ export class SunmiKefu {
   @Prop() customed: boolean;
 
   @State() open: boolean;
+  @State() adaptor: SunmiComAdaptor | MallSunmiComAdaptor | H5MallSunmiComAdaptor | PartnerSunmiComAdaptor | LocalhostAdaptor;
 
   private toggleVisible() {
     this.open = !this.open;
+    this.adaptor = this.getAdaptor();
   }
 
   @Listen('click', { capture: true })
@@ -77,15 +79,14 @@ export class SunmiKefu {
     if (SunmiComAdaptor.isMiniprogram()) {
       return null;
     }
-    const adaptor = this.getAdaptor();
     return (
       <div class={cx('kefu', { 'is-open': this.open })}>
         <div class="kefu__modal">
           <div class="modal__action">
             <div class="fold-icon"></div>
           </div>
-          {adaptor.scripts.mobile && <iframe class="kefu__iframe is-mobile" src={adaptor.scripts.mobile} />}
-          {adaptor.scripts.pc && <iframe class="kefu__iframe is-pc" src={adaptor.scripts.pc} />}
+          {this.adaptor?.scripts.pc && <iframe class="kefu__iframe is-pc" src={this.adaptor.scripts.pc} />}
+          {this.adaptor?.scripts.mobile && <iframe class="kefu__iframe is-mobile" src={this.adaptor.scripts.mobile} />}
         </div>
         {this.renderChild()}
       </div>
