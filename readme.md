@@ -2,6 +2,8 @@
 
 ## 使用
 
+### 引用
+
 ```html
 
 <!-- 项目入口文件 index.html | document.ejs -->
@@ -11,6 +13,22 @@
 <!-- Kefu操作方法 -->
 <script src="https://cdn.jsdelivr.net/npm/@sunmi/kefu@latest/dist/sunmi-kefu/index.esm.js"></script>
 
+<body>
+  <!-- 实例化（可选，因为包里有自动实例化的逻辑） -->
+  <sunmi-kefu></sunmi-kefu>
+  <!-- 调用方自定义客服UI -->
+  <sunmi-kefu customed></sunmi-kefu>
+</body>
+
+```
+
+### 触发客服展开
+
+```ts
+
+const someEventhandler = () => {
+  window.Kefu.toggleVisible()
+}
 ```
 
 ## Power by StencilJS
